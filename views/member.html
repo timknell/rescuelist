@@ -1,0 +1,94 @@
+<div style="margin:10px">
+  
+  <!--Member Name-->
+  <h2 style="text-align: center">{{member.fullname}}</h2>
+  
+  <!--Member Information-->
+  <div style="float:left;margin:10px;">
+    <h4 style="margin-left:10px">Household Information</h4>
+    <div class="list-group" style="width:300px;">
+      <!--Address-->
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading">
+          Address 
+          <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+        </h4>
+        <p class="list-group-item-text">{{member.address.street1}}<br/>{{member.address.city}}, {{member.address.state}} {{member.address.zipcode}}</p>
+      </div>
+      <!--Phone-->
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading">Phone 
+          <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+        </h4>
+        <p class="list-group-item-text">{{member.phone}}</p>
+      </div>
+      <!--Email-->
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading">Email  
+          <button type="button" class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+        </h4>
+        <p class="list-group-item-text">{{member.email}}</p>
+      </div>
+      <!--Active?-->
+      <div class="list-group-item">
+        <h4><span class="label label-success">Active</span> <button type="button" class="btn btn-default btn-xs">
+          <span class="glyphicon glyphicon-pencil"></span>
+          </button></h4>
+        <!--<form action="">
+<select name="activity">
+<option value="tbd" selected>Activity Not Determined</option>
+<option value="active">Active</option>
+<option value="inactive">Inactive</option>
+</select>
+</form>-->
+      </div>
+    </div>
+    
+    <div>{{member.responsibleAuxiliary.auxiliary}}</div>
+    
+    <!--Home and Visiting Teachers-->
+    
+    <div style="margin-left:10px">
+      <h4>Home Teachers</h4>
+      <div ng-show="!member.homeTeachers.length">None assigned</div>
+      <div ng-repeat="homeTeacher in member.homeTeachers">
+        <a ng-href="#/members/{{homeTeacher._id}}">{{homeTeacher.fullname}}</a>
+      </div>
+      
+      <h4>Visiting Teachers</h4>
+      <div ng-show="!visitingTeacher.length">None assigned</div>
+      <div ng-repeat="visitingTeacher in member.visitingTeachers">
+        <a ng-href="#/members/{{visitingTeacher._id}}">{{visitingTeacher.fullname}}</a>
+      </div>
+    </div>
+  </div>    
+
+  <!--Checklist-->
+  <div class="list-group" style="float:left;margin:10px;">
+    <ng-include src="'views/checklist.html'"></ng-include>
+  </div>
+
+  <!--Comments-->
+  <div style="float:left;margin:10px;">
+    <h4 style="margin-left:10px">Comments<span style="font-size:12px; color:#aaa; margin-left:5px">({{stream.length}})</span></h4>
+    
+    <!--Leave a Comment-->
+    
+    <div class="row">
+      <div class="col-lg-12">
+          <textarea class="form-control" placeholder="Leave a comment" rows="1"></textarea>
+          <button class="btn btn-primary" type="button">Submit</button>
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+    <br/>
+    
+    <!--Comments List-->
+    <ng-include src="'views/stream.html'"></ng-include>
+  </div>
+</div>

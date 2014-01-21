@@ -1,0 +1,7 @@
+    <ul class="list-group">      
+      <li ng-repeat="comment in stream" class="list-group-item">
+          <div style="font-weight:bold">{{comment.user.fullname}}</div>
+          <div><span style="font-size:10px; color:#aaa;">{{comment.datetime}}</span></div><div style="height:10px"></div>
+          <div>{{comment.comment}}</div>
+      </li>
+    </ul>
