@@ -1,22 +1,6 @@
 <cfcomponent>
 	<cffunction name="get" access="remote" returnformat="JSON" returntype="struct">
-		<cfset var json = '{"members":[
-    {"_id":1,"fullname":"Timothy Knell",
-        "AddressIsCorrect":true,
-        "address":
-           {
-                "street1":"36 Winslow Dr.",
-                "city":"Hanson",
-                "state":"MA",
-                "zipcode":"02341"
-            }
-
-},
-    {"_id":2,"fullname":"David Knell"},
-    {"_id":3,"fullname":"Christopher Knell","AddressIsCorrect":true},
-    {"_id":4,"fullname":"Scott Knell","AddressIsCorrect":false}
-]}'>
-		<cfquery name="local.membersQuery" datasource="rescuelist">
+		<cfquery name="local.membersQuery">
 			SELECT * FROM Membership
 		</cfquery>
 		<cfset var json = {}>
@@ -42,7 +26,7 @@
 	</cffunction>
 	<cffunction name="getByID" access="remote" returnformat="JSON" returntype="struct">
 		<cfargument name="ID" required="true" type="numeric">
-		<cfquery name="local.memberQuery" datasource="rescuelist">
+		<cfquery name="local.memberQuery">
 			SELECT * FROM Membership WHERE `Indiv ID` = <cfqueryparam value="#arguments.ID#">
 		</cfquery>		
 		<cfset var json = {

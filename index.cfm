@@ -1,4 +1,4 @@
-<html ng-app="rescueApp">
+﻿<html ng-app="rescueApp">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title ng-bind="pageTitle + ' &dash; Resuce List &dash; West Bridgewater Ward'">Resuce List : West Bridgewater Ward</title>
@@ -6,7 +6,7 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.min.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="includes/javascript/controllers.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
       
@@ -38,7 +38,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" class="navbar-link"><i class="glyphicon glyphicon-user"></i> Tim Knell</a></li>
-          <li><a href="#" class="navbar-link"><i class="glyphicon glyphicon-log-out"></i> Sign out</a></li>
+          <li><a href="?logout" class="navbar-link"><i class="glyphicon glyphicon-log-out"></i> Sign out</a></li>
         </ul>
         
       </div><!-- /.navbar-collapse -->

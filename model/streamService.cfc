@@ -1,6 +1,6 @@
-﻿<cfcomponent>
+﻿<cfcomponent output="false">
 
-	<cffunction name="get" access="remote" returnFormat="JSON" returntype="struct">
+	<cffunction name="get" access="remote" output="false" returnFormat="JSON" returntype="struct">
 		<cfsavecontent variable="local.json">
 {"stream":[
     {

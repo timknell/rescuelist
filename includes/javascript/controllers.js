@@ -22,18 +22,18 @@ rescueApp.config(['$routeProvider', '$httpProvider',
 
 rescueApp.controller('MemberListCtrl', ['$scope','$rootScope','$http',function ($scope,$rootScope,$http) {
   $rootScope.pageTitle = 'Members';
-  $http.get('model/members.cfc?method=get').success(function(data) {
+  $http.get('model/memberService.cfc?method=get').success(function(data) {
     $scope.members = data.members;
   });
 }]);
 
 
 rescueApp.controller('MemberCtrl', ['$scope','$rootScope','$http','$routeParams',function ($scope,$rootScope,$http,$routeParams) {
-  $http.get('model/members.cfc?method=getByID&ID='+ $routeParams.memberID).success(function(data) {
+  $http.get('model/memberService.cfc?method=getByID&ID='+ $routeParams.memberID).success(function(data) {
     $scope.member = data.member;
     $rootScope.pageTitle = data.member.fullname;
   });
-  $http.get('model/stream.cfc?method=get').success(function(data) {
+  $http.get('model/streamService.cfc?method=get').success(function(data) {
     $scope.stream = data.stream;
   });
   $scope.checkBoxClass = function(complete){
@@ -60,7 +60,7 @@ rescueApp.controller('MemberCtrl', ['$scope','$rootScope','$http','$routeParams'
 
 rescueApp.controller('StreamCtrl', ['$scope','$rootScope','$http',function ($scope,$rootScope,$http) {
   $rootScope.pageTitle = 'Stream';
-  $http.get('model/stream.cfc?method=get').success(function(data) {
+  $http.get('model/streamService.cfc?method=get').success(function(data) {
     $scope.stream = data.stream;
   });
 }]);
